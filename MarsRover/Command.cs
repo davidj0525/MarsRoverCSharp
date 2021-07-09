@@ -8,7 +8,20 @@ namespace MarsRover
         public string NewMode { get; set; }
 
 
-        public Command() { }
+        //public Command(string commandType, int position = 500, string mode = "")
+        //{
+        //    CommandType = commandType;
+        //    NewPostion = position;
+        //    NewMode = mode;
+        //    if(String.IsNullOrEmpty(commandType))
+        //    {
+        //        throw new ArgumentNullException(commandType, "Command type required.");
+        //    }
+        //    if (String.IsNullOrEmpty(mode))
+        //    {
+        //        throw new ArgumentNullException(mode, "Mode required.");
+        //    }
+        //}
 
         public Command(string commandType)
         {
@@ -19,14 +32,30 @@ namespace MarsRover
             }
         }
 
-        public Command(string commandType, int value)
+        public Command(string commandType, string newMode)
         {
             CommandType = commandType;
+            NewMode = newMode;
             if (String.IsNullOrEmpty(commandType))
             {
                 throw new ArgumentNullException(commandType, "Command type required.");
             }
-            NewPostion = value;
+        }
+
+        public Command(string commandType, int? value)
+        {
+            CommandType = commandType;
+            
+            if (String.IsNullOrEmpty(commandType))
+            {
+                throw new ArgumentNullException(commandType, "Command type required.");
+            }
+
+            if (value != null)
+            {
+                NewPostion = (int)value;
+            }
+
         }
 
     }
