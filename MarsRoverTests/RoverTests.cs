@@ -45,9 +45,10 @@ namespace MarsRoverTests
         public void DoesNotMoveInLowPower()
         {
             Rover roger = new Rover();
-            Command[] modeTest = { new Command("MODE_CHANGE", "LOW_POWER"), new Command("MOVE", 200) };
-            Message testMessage = new Message("MOVE!", modeTest);
+            Command[] moveTest = { new Command("MODE_CHANGE", "LOW_POWER"), new Command("MOVE", 200) };
+            Message testMessage = new Message("MOVE!", moveTest);
             roger.ReceiveMessage(testMessage);
+
             //Assert.ThrowsException<ArgumentOutOfRangeException>
             // Assert.AreEqual(roger.Position, 200);
         }

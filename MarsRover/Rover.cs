@@ -14,12 +14,17 @@ namespace MarsRover
             GeneratorWatts = 110;
         }
 
+        /* Have to create a method to recieve the message.  Will 
+         * try method to take in a message as an argument, then
+         * will parse commands to an array.  Then iterate over array
+         * to dictate behavior.
+         */
+
         public void ReceiveMessage(Message message)
         {
             Command[] reachableCommandsArr = message.Commands;
 
-            //try
-            //{
+            // tried a try/catch, but changed to an if/else which worked better for me
                 foreach (Command comm in reachableCommandsArr)
                 {
                     if (comm.CommandType == "MODE_CHANGE")
@@ -35,44 +40,9 @@ namespace MarsRover
                         this.Position = comm.NewPostion;
                     }
                 }
-            //}
-            //catch
-            //{
-            //    if ((this.Mode == "LOW_POWER") && (this.Position >= 0))
-            //    {
-            //        throw new ArgumentOutOfRangeException("Rover can't move while in LOW_POWER mode");
-            //    }
-            //}
         }
 
-        //public void ReceiveMessage(Message message)
-        //{
-        //    Command[] commArr = message.Commands;
-        //    try
-        //    {
-        //        foreach (Command command in commArr)
-        //        {
-        //            if (Mode == "MODE_CHANGE")
-        //            {
-        //                this.Mode = command.NewMode;
 
-        //            }
-
-        //            else
-        //            {
-        //                this.Position = command.NewPostion;
-        //            }
-        //        }
-
-        //        catch
-        //        {
-        //            if ((this.Mode == "LOW_POWER") && (this.Position >= 0))
-        //            {
-        //                throw new ArgumentOutOfRangeException("Rover can't move while in LOW_POWER mode");
-        //            }
-
-        //        }
-        //    }
 
         public override string ToString()
         {

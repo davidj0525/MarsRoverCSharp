@@ -14,7 +14,6 @@ namespace MarsRover
              * according to some if/else statements. 
              */
 
-
             Rover myRover = new Rover(20);
             Console.WriteLine(myRover.ToString());
 
@@ -26,7 +25,7 @@ namespace MarsRover
 
             Console.WriteLine(myRover.ToString());
 
-            // OK, it works, now let's try low power mode.
+            // OK, it works, now let's try to move in low power mode.
 
             Command[] secondCommand = { new Command("MODE_CHANGE", "LOW_POWER"), new Command("MOVE", 500) };
 
@@ -35,16 +34,6 @@ namespace MarsRover
             myRover.ReceiveMessage(secondMessage);
 
             Console.WriteLine(myRover.ToString());
-
-
-            //Command[] test2 = { new Command("MOVE", 100) };
-
-            //Message kaka = new Message("Yet another test", test2);
-
-            //myRover.ReceiveMessage(kaka);
-
-            //Console.WriteLine(myRover.ToString());
-
 
         }
     }
